@@ -12,28 +12,19 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // 🔥 Scroll Function
+  
   const handleScroll = (id) => {
     const section = document.getElementById(id);
 
     if (section) {
-      const navbarHeight = 80; // 👈 apne navbar ki approx height
-
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition =
-        window.pageYOffset + elementPosition - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      section.scrollIntoView({ behavior: "smooth" });
     }
 
     setMenuOpen(false);
   };
 
   return (
-    <nav style={styles.nav}>
+    <nav id="nav" style={styles.nav}>
       <div style={styles.container}>
         {/* Brand */}
         <div style={styles.brand}>
@@ -199,6 +190,7 @@ const styles = {
     textAlign: "left",
     cursor: "pointer",
     fontSize: "1rem",
+    color: "#333", 
   },
 
   mobileBtn: {

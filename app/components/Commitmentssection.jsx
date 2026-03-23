@@ -35,7 +35,7 @@ const commitments = [
 
 export default function CommitmentsSection() {
   return (
-    <section style={styles.section}>
+    <section id="vision" style={styles.section}>
       <div style={styles.container}>
         {/* Title */}
         <div style={styles.titleBlock}>

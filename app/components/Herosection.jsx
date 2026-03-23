@@ -3,7 +3,7 @@ import heroImage from "@/public/herosection.jpeg";
 
 export default function HeroSection() {
   return (
-    <section id="about" style={styles.section}>
+    <section id="home" style={styles.section}>
       <div style={styles.container}>
         {/* RIGHT → CONTENT */}
         <div style={styles.right}>
@@ -30,13 +30,21 @@ export default function HeroSection() {
             <div>
               <h3 style={styles.infoName}>राजेन्द्र कुमार अग्रवाल</h3>
               <p style={styles.infoSub}>अधिवक्ता, राजस्थान उच्च न्यायालय</p>
-              <p style={styles.infoPhone}>📞 9057747296 | 7023023080</p>
+              <p style={styles.infoPhone}>📞 9257061112 | 9829061112</p>
             </div>
           </div>
 
           {/* BUTTONS */}
           <div style={styles.btnRow}>
-            <button style={styles.primaryBtn}>
+            <button
+              style={styles.primaryBtn}
+              onClick={() => {
+                const section = document.getElementById("voter-search");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
               🔍 अपना नाम मतदाता सूची में खोजें
             </button>
             <button style={styles.outlineBtn}>📞 संपर्क करें</button>

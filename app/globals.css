@@ -82,3 +82,11 @@ body {
     font-size: 1.3rem;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 330px; /* 👈 navbar height ke according */
+}
