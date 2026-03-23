@@ -3,11 +3,13 @@
 import aboutImage from "@/public/aboutus.jpeg";
 
 const bioPoints = [
-  "Advocate, Rajasthan High Court, Jaipur",
-  "Office Hotel Reeve Inn, Near Session Court Gate No. 4, Kabir Marg, Banipark",
-  "Candidate for Member, Bar Council of Rajasthan 2026",
-  "Committed to the culture of the legal fraternity of Rajasthan",
-  "A strong advocate of every issue of the Bar Council",
+  "Advocate at Rajasthan High Court, Jaipur  ",
+  "Candidate for Member, Bar Council of Rajasthan 2026 ",
+  "Dedicated to upholding the dignity and traditions of the legal fraternity  ",
+  "Actively working for the rights, welfare, and unity of advocates  ",
+  "A strong and fearless voice on every issue concerning the Bar Council ",
+  "Committed to transparency, growth, and modernization of legal systems ",
+  "Standing firmly with advocates — in court and beyond ",
 ];
 
 export default function AboutSection() {
