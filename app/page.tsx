@@ -5,6 +5,7 @@ import GallerySection from "./components/Gallerysection";
 import CommitmentsSection from "./components/Commitmentssection";
 import AboutSection from "./components/Aboutsection";
 import ContactSection from "./components/Contactsection";
+import InstagramCarousel from "./components/Instagramcarousel"
 import Footer from "./components/Footer";
 import "./globals.css";
 
@@ -17,6 +18,7 @@ export default function App() {
       <GallerySection />
       <CommitmentsSection />
       <AboutSection />
+      <InstagramCarousel />
       <ContactSection />
       <Footer />
     </div>

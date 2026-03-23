@@ -4,7 +4,7 @@ import aboutImage from "@/public/aboutus.jpeg";
 
 const bioPoints = [
   "Advocate, Rajasthan High Court, Jaipur",
-  "Chamber No. 323, C Block, Rajasthan High Court",
+  "Hotel Reeve Inn, Near Session Court Gate No. 4, Kabir Marg, Banipark",
   "Candidate for Member, Bar Council of Rajasthan 2025",
   "Committed to the culture of the legal fraternity of Rajasthan",
   "A strong advocate of every issue of the Bar Council",

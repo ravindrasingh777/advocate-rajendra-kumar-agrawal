@@ -1,12 +1,14 @@
 // components/ContactSection.jsx
 
+import { FacebookIcon, InstagramIcon } from "lucide-react";
+
 const contactCards = [
   {
     icon: "📍",
     titleHi: "पता / Address",
     lines: [
-      "Chamber No. 323, C Block",
-      "Rajasthan High Court",
+      "Hotel Reeve Inn, Near Session Court Gate No. 4",
+      " Kabir Marg, Banipark",
       "Jaipur, Rajasthan",
     ],
   },
@@ -22,7 +24,7 @@ const contactCards = [
     lines: [
       "Bar Council of Rajasthan",
       "Member Election 2025–26",
-      "Vote: Hemant Sant",
+      "Vote: Adv. Rajendra Kumar Agrawal",
     ],
   },
 ];
@@ -57,11 +59,11 @@ export default function ContactSection() {
 
               {card.social && (
                 <div style={styles.socialRow}>
-                  <a href="#" style={styles.socialBtn}>
-                    📘
+                  <a href="https://www.facebook.com/people/Rajendra-Kumar-Agrawal/61584317660811/" style={styles.socialBtn}>
+                    <FacebookIcon/>
                   </a>
-                  <a href="#" style={styles.socialBtn}>
-                    💬
+                  <a href="https://www.instagram.com/adv.rajendra_agrawal22?igsh=MTN1dXdseHI2bHFoNw%3D%3D&utm_source=qr" style={styles.socialBtn}>
+                    <InstagramIcon/>
                   </a>
                 </div>
               )}

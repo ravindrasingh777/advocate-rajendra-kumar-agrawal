@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import data from "@/public/voter_list_2026_structured.json";
+import data2 from "@/public/AdditionalList.json";
+import data3 from "@/public/voter_list_11_03_2026.json";
 
 export default function VoterSearch() {
   const [query, setQuery] = useState("");
@@ -8,15 +10,33 @@ export default function VoterSearch() {
   const [searched, setSearched] = useState(false);
   const [visibleCount, setVisibleCount] = useState(10);
 
-  const allVoters = data.sections.flatMap((s) => s.records);
+  // const allData = [data, data2, data3];
+
+  const allVoters = useMemo(() => {
+    const fromData1 = (data.sections || []).flatMap((s) => s.records || []);
+
+    const fromData2 = (data2.sections || []).flatMap((s) => s.pages || []);
+
+    const fromData3 = data3.records || [];
+
+    return [...fromData1, ...fromData2, ...fromData3];
+  }, []);
 
   const handleSearch = () => {
     if (!query.trim()) return;
 
+    // const filtered = allVoters.filter(
+    //   (voter) =>
+    //     voter.name_as_on_roll.toLowerCase().includes(query.toLowerCase()) ||
+    //     voter.roll_number.toLowerCase().includes(query.toLowerCase()),
+    // );
+
     const filtered = allVoters.filter(
       (voter) =>
-        voter.name_as_on_roll.toLowerCase().includes(query.toLowerCase()) ||
-        voter.roll_number.toLowerCase().includes(query.toLowerCase()),
+        (voter.name_as_on_roll || "")
+          .toLowerCase()
+          .includes(query.toLowerCase()) ||
+        (voter.roll_number || "").toLowerCase().includes(query.toLowerCase()),
     );
 
     setResults(filtered);
