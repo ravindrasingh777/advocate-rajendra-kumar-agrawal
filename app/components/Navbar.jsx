@@ -12,7 +12,6 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  
   const handleScroll = (id) => {
     const section = document.getElementById(id);
 
@@ -127,7 +126,7 @@ const styles = {
   brandName: {
     fontWeight: 700,
     fontSize: "1rem",
-    color: "#8B0000",
+    color: "#0B3C5D",
   },
   brandTag: {
     fontSize: "0.65rem",
@@ -190,7 +189,7 @@ const styles = {
     textAlign: "left",
     cursor: "pointer",
     fontSize: "1rem",
-    color: "#333", 
+    color: "#333",
   },
 
   mobileBtn: {
