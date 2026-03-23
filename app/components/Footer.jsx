@@ -25,7 +25,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div style={styles.copy}>
-          © 2025 Adv. Rajendra Kumar Agrawal | BCR 2026. सर्वाधिकार सुरक्षित।
+          © 2026 Adv. Rajendra Kumar Agrawal | BCR 2026. सर्वाधिकार सुरक्षित।
         </div>
       </div>
     </footer>
@@ -37,7 +37,7 @@ const styles = {
     background: "#111",
     color: "#aaa",
     padding: "1.8rem 1.5rem",
-    borderTop: "3px solid #8B0000",
+    borderTop: "3px solid #0B3C5D",
   },
   container: {
     maxWidth: "1100px",

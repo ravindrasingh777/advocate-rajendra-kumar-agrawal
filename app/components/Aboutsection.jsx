@@ -4,8 +4,8 @@ import aboutImage from "@/public/aboutus.jpeg";
 
 const bioPoints = [
   "Advocate, Rajasthan High Court, Jaipur",
-  "Hotel Reeve Inn, Near Session Court Gate No. 4, Kabir Marg, Banipark",
-  "Candidate for Member, Bar Council of Rajasthan 2025",
+  "Office Hotel Reeve Inn, Near Session Court Gate No. 4, Kabir Marg, Banipark",
+  "Candidate for Member, Bar Council of Rajasthan 2026",
   "Committed to the culture of the legal fraternity of Rajasthan",
   "A strong advocate of every issue of the Bar Council",
 ];
@@ -93,8 +93,8 @@ const styles = {
 
   sectionTag: {
     background: "#fff0f0",
-    border: "1px solid #8B0000",
-    color: "#8B0000",
+    border: "1px solid #0B3C5D",
+    color: "#0B3C5D",
     borderRadius: "20px",
     padding: "0.25rem 0.9rem",
     fontSize: "0.7rem",
@@ -130,7 +130,7 @@ const styles = {
   },
 
   bioCheck: {
-    color: "#8B0000",
+    color: "#0B3C5D",
     fontWeight: 700,
     fontSize: "0.9rem",
     flexShrink: 0,
@@ -140,7 +140,7 @@ const styles = {
   quote: {
     background: "#fff",
     border: "1.5px solid #e0d8cc",
-    borderLeft: "4px solid #8B0000",
+    borderLeft: "4px solid #0B3C5D",
     borderRadius: "10px",
     padding: "1rem 1.2rem",
     display: "flex",
@@ -159,7 +159,7 @@ const styles = {
 
   quoteAuthor: {
     fontSize: "0.75rem",
-    color: "#8B0000",
+    color: "#0B3C5D",
     fontWeight: 600,
   },
 };

@@ -175,7 +175,7 @@ const styles = {
   },
 
   searchBtn: {
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     border: "none",
     padding: "0.85rem 1.5rem",
@@ -191,7 +191,7 @@ const styles = {
   },
 
   highlight: {
-    color: "#8B0000",
+    color: "#0B3C5D",
     fontWeight: "700",
   },
 
@@ -248,7 +248,7 @@ const styles = {
   loadMoreBtn: {
     marginTop: "1rem",
     padding: "0.7rem 1.5rem",
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     border: "none",
     borderRadius: "8px",

@@ -114,7 +114,7 @@ const styles = {
   },
 
   badge: {
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     padding: "6px 14px",
     borderRadius: "20px",
@@ -138,7 +138,7 @@ const styles = {
     background: "#fff",
     padding: "1rem",
     borderRadius: "12px",
-    borderLeft: "5px solid #8B0000",
+    borderLeft: "5px solid #0B3C5D",
     boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
     maxWidth: "400px",
   },
@@ -155,7 +155,7 @@ const styles = {
 
   infoPhone: {
     fontSize: "0.9rem",
-    color: "#8B0000",
+    color: "#0B3C5D",
     marginTop: "5px",
   },
 
@@ -166,7 +166,7 @@ const styles = {
   },
 
   primaryBtn: {
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     padding: "12px 18px",
     borderRadius: "8px",
@@ -177,8 +177,8 @@ const styles = {
   },
 
   outlineBtn: {
-    border: "2px solid #8B0000",
-    color: "#8B0000",
+    border: "2px solid #0B3C5D",
+    color: "#0B3C5D",
     padding: "10px 16px",
     borderRadius: "8px",
     background: "transparent",

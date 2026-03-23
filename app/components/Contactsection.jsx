@@ -7,7 +7,7 @@ const contactCards = [
     icon: "📍",
     titleHi: "पता / Address",
     lines: [
-      "Hotel Reeve Inn, Near Session Court Gate No. 4",
+      "Office Hotel Reeve Inn, Near Session Court Gate No. 4",
       " Kabir Marg, Banipark",
       "Jaipur, Rajasthan",
     ],
@@ -59,11 +59,17 @@ export default function ContactSection() {
 
               {card.social && (
                 <div style={styles.socialRow}>
-                  <a href="https://www.facebook.com/people/Rajendra-Kumar-Agrawal/61584317660811/" style={styles.socialBtn}>
-                    <FacebookIcon/>
+                  <a
+                    href="https://www.facebook.com/people/Rajendra-Kumar-Agrawal/61584317660811/"
+                    style={styles.socialBtn}
+                  >
+                    <FacebookIcon />
                   </a>
-                  <a href="https://www.instagram.com/adv.rajendra_agrawal22?igsh=MTN1dXdseHI2bHFoNw%3D%3D&utm_source=qr" style={styles.socialBtn}>
-                    <InstagramIcon/>
+                  <a
+                    href="https://www.instagram.com/adv.rajendra_agrawal22?igsh=MTN1dXdseHI2bHFoNw%3D%3D&utm_source=qr"
+                    style={styles.socialBtn}
+                  >
+                    <InstagramIcon />
                   </a>
                 </div>
               )}
@@ -112,7 +118,7 @@ const styles = {
   },
 
   titleEn: {
-    color: "#8B0000",
+    color: "#0B3C5D",
     fontSize: "0.9rem",
   },
 
@@ -144,7 +150,7 @@ const styles = {
   divider: {
     width: "40px",
     height: "3px",
-    background: "#8B0000",
+    background: "#0B3C5D",
     margin: "0.5rem auto 1rem",
     borderRadius: "10px",
   },
@@ -171,7 +177,7 @@ const styles = {
     width: "34px",
     height: "34px",
     borderRadius: "50%",
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     display: "flex",
     alignItems: "center",
@@ -182,7 +188,7 @@ const styles = {
   cta: {
     marginTop: "2.5rem",
     textAlign: "center",
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     padding: "1.5rem",
     borderRadius: "10px",

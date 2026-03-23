@@ -1,4 +1,5 @@
 "use client";
+import TypingText from "../landing/typingText";
 import { useState } from "react";
 
 const navLinks = [
@@ -27,7 +28,8 @@ export default function Navbar() {
       <div style={styles.container}>
         {/* Brand */}
         <div style={styles.brand}>
-          <span style={styles.brandName}>Adv. Rajendra Kumar Agrawal</span>
+          {/* <span style={styles.brandName}>Adv. Rajendra Kumar Agrawal</span> */}
+          <TypingText />
           <span style={styles.brandTag}>BCR 2026</span>
         </div>
 
@@ -109,7 +111,7 @@ const styles = {
     top: 0,
     zIndex: 1000,
     background: "#f8f6f3",
-    borderBottom: "2px solid #8B0000",
+    borderBottom: "2px solid #0B3C5D",
   },
   container: {
     maxWidth: "1100px",
@@ -129,7 +131,7 @@ const styles = {
     color: "#0B3C5D",
   },
   brandTag: {
-    fontSize: "0.65rem",
+    fontSize: "0.9rem",
     color: "#C9A84C",
     fontWeight: 600,
   },
@@ -145,13 +147,13 @@ const styles = {
     background: "none",
     border: "none",
     cursor: "pointer",
-    color: "#333",
+    color: "#0B3C5D",
     fontSize: "0.9rem",
-    fontWeight: 500,
+    fontWeight: 700,
   },
 
   ctaBtn: {
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     border: "none",
     padding: "0.5rem 1rem",
@@ -170,7 +172,7 @@ const styles = {
   bar: {
     width: "22px",
     height: "2px",
-    background: "#8B0000",
+    background: "#0B3C5D",
   },
 
   mobileMenu: {
@@ -189,13 +191,13 @@ const styles = {
     textAlign: "left",
     cursor: "pointer",
     fontSize: "1rem",
-    color: "#333",
+    color: "#0B3C5D",
   },
 
   mobileBtn: {
     width: "100%",
     margin: "0.8rem 0",
-    background: "#8B0000",
+    background: "#0B3C5D",
     color: "#fff",
     border: "none",
     padding: "0.7rem",
