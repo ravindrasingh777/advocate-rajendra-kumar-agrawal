@@ -90,3 +90,12 @@ html {
 section {
   scroll-margin-top: 330px; /* 👈 navbar height ke according */
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

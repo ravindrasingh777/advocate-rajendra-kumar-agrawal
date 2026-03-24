@@ -23,7 +23,7 @@ const contactCards = [
     titleHi: "चुनाव / Election",
     lines: [
       "Bar Council of Rajasthan",
-      "Member Election 2025–26",
+      "Member Election 2026",
       "Vote: Adv. Rajendra Kumar Agrawal",
     ],
   },

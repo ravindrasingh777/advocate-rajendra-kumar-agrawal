@@ -1,7 +1,7 @@
 "use client";
 
 import gallery1 from "@/public/gallery1.jpeg";
-import gallery2 from "@/public/gallery2.jpeg";
+import gallery2 from "@/public/gallery16.jpeg";
 import gallery3 from "@/public/gallery3.jpeg";
 import gallery4 from "@/public/gallery4.jpeg";
 import gallery5 from "@/public/gallery5.jpeg";
@@ -15,6 +15,7 @@ import gallery12 from "@/public/gallery12.jpeg";
 import gallery13 from "@/public/gallery13.jpeg";
 import gallery14 from "@/public/gallery14.jpeg";
 import gallery15 from "@/public/gallery15.jpeg";
+import Link from "next/link";
 
 const images = [
   { id: 1, src: gallery1 },
@@ -42,7 +43,7 @@ export default function GalleryPage() {
         <h2 style={styles.title}>Gallery</h2>
 
         {/* 🔥 GRID */}
-        <div style={styles.grid}>
+        <div style={styles.grid} className="grid">
           {images.map((img) => (
             <div
               key={img.id}
@@ -61,6 +62,12 @@ export default function GalleryPage() {
               />
             </div>
           ))}
+        </div>
+
+        <div style={{width:"100%", marginTop:"2rem", display:"flex",alignItems:"center", justifyContent:"center"}}>
+          <button style={{padding:"5px",border:"2px solid #0B3C5D", borderRadius:"10px"}}>
+            <Link style={{color:"#0B3C5D", textDecoration:"none", padding:"1rem"}} href="/">Back</Link>
+          </button>
         </div>
       </div>
 

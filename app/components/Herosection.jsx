@@ -7,9 +7,9 @@ export default function HeroSection() {
       <div style={styles.container}>
         {/* RIGHT → CONTENT */}
         <div style={styles.right}>
-          <div style={styles.badge}>
+          {/* <div style={styles.badge}>
             ⚖️ Bar Council Election 2026 — सदस्य पद
-          </div>
+          </div> */}
 
           <h1 style={styles.heading}>
             समस्त आदरणीय

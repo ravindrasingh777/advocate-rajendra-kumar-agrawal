@@ -73,7 +73,7 @@ export default function Navbar() {
       <div
         style={{
           ...styles.mobileMenu,
-          maxHeight: menuOpen ? "350px" : "0px",
+          maxHeight: menuOpen ? "380px" : "0px",
           opacity: menuOpen ? 1 : 0,
         }}
       >
