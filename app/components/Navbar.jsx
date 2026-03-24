@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import TypingText from "../landing/typingText";
 import { useState } from "react";
 
@@ -6,12 +7,14 @@ const navLinks = [
   { name: "होम", id: "home" },
   { name: "परिचय", id: "about" },
   { name: "संकल्प", id: "vision" },
-  { name: "गैलरी", id: "gallery" },
+  { name: "संघर्ष", id: "hardwork" },
+  { name: "गैलरी", route: "/gallery" },
   { name: "संपर्क", id: "contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   const handleScroll = (id) => {
     const section = document.getElementById(id);
@@ -38,7 +41,9 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link.id}>
               <button
-                onClick={() => handleScroll(link.id)}
+                onClick={() =>
+                  link.route ? router.push(link.route) : handleScroll(link.id)
+                }
                 style={styles.navLink}
               >
                 {link.name}
@@ -75,7 +80,9 @@ export default function Navbar() {
         {navLinks.map((link) => (
           <button
             key={link.id}
-            onClick={() => handleScroll(link.id)}
+            onClick={() =>
+              link.route ? router.push(link.route) : handleScroll(link.id)
+            }
             style={styles.mobileLink}
           >
             {link.name}

@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/Herosection";
 import VoterSearch from "./components/VoterSearch";
-import GallerySection from "./components/Gallerysection";
+import HardworkSection from "./components/Hardworksection";
 import CommitmentsSection from "./components/Commitmentssection";
 import AboutSection from "./components/Aboutsection";
 import ContactSection from "./components/Contactsection";
@@ -15,7 +15,7 @@ export default function App() {
       <Navbar />
       <HeroSection />
       <VoterSearch />
-      <GallerySection />
+      <HardworkSection />
       <CommitmentsSection />
       <AboutSection />
       <InstagramCarousel />
