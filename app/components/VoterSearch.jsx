@@ -29,7 +29,7 @@ export default function VoterSearch() {
   };
 
   return (
-    <section style={styles.section}>
+    <section id="voter-search" style={styles.section}>
       <div style={styles.container}>
         <h2 style={styles.title}>मतदाता सूची में अपना नाम खोजें</h2>
 
