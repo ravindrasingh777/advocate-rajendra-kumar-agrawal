@@ -1,8 +1,7 @@
 "use client";
-import { useMemo, useState } from "react";
-import data from "@/public/voter_list_2026_structured.json";
-import data2 from "@/public/AdditionalList.json";
-import data3 from "@/public/voter_list_11_03_2026.json";
+import { useState } from "react";
+import data from "@/public/All_Data.json";
+import MainBanner from "@/public/mainBanner.jpeg";
 
 export default function VoterSearch() {
   const [query, setQuery] = useState("");
@@ -10,51 +9,35 @@ export default function VoterSearch() {
   const [searched, setSearched] = useState(false);
   const [visibleCount, setVisibleCount] = useState(10);
 
-  // const allData = [data, data2, data3];
-
-  const allVoters = useMemo(() => {
-    const fromData1 = (data.sections || []).flatMap((s) => s.records || []);
-
-    const fromData2 = (data2.sections || []).flatMap((s) => s.pages || []);
-
-    const fromData3 = data3.records || [];
-
-    return [...fromData1, ...fromData2, ...fromData3];
-  }, []);
+  const allVoters = data.rows || [];
 
   const handleSearch = () => {
     if (!query.trim()) return;
 
-    // const filtered = allVoters.filter(
-    //   (voter) =>
-    //     voter.name_as_on_roll.toLowerCase().includes(query.toLowerCase()) ||
-    //     voter.roll_number.toLowerCase().includes(query.toLowerCase()),
-    // );
-
-    const filtered = allVoters.filter(
-      (voter) =>
-        (voter.name_as_on_roll || "")
-          .toLowerCase()
-          .includes(query.toLowerCase()) ||
-        (voter.roll_number || "").toLowerCase().includes(query.toLowerCase()),
+    const filtered = allVoters.filter((voter) =>
+      (voter["Name as on the Roll"] || "")
+        .toLowerCase()
+        .includes(query.toLowerCase()) ||
+      (voter["Number on the Roll"] || "")
+        .toLowerCase()
+        .includes(query.toLowerCase())
     );
 
     setResults(filtered);
-    setVisibleCount(10); // reset on new search
+    setVisibleCount(10);
     setSearched(true);
   };
 
   return (
-    <section id="voter-search" style={styles.section}>
+    <section style={styles.section}>
       <div style={styles.container}>
-        {/* Title */}
         <h2 style={styles.title}>मतदाता सूची में अपना नाम खोजें</h2>
 
         {/* Search */}
         <div style={styles.searchBox}>
           <input
             type="text"
-            placeholder="नाम या नामांकन संख्या दर्ज करें..."
+            placeholder="नाम या रोल नंबर डालें..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
@@ -75,7 +58,7 @@ export default function VoterSearch() {
 
         {/* No Result */}
         {searched && results.length === 0 && (
-          <p style={styles.resultText}>❌ आपका नाम सूची में नहीं मिला</p>
+          <p style={styles.resultText}>❌ आपका नाम नहीं मिला</p>
         )}
 
         {/* Cards */}
@@ -83,41 +66,61 @@ export default function VoterSearch() {
           <>
             <div style={styles.resultsWrapper}>
               {results.slice(0, visibleCount).map((voter, index) => (
-                <div
-                  key={index}
-                  style={styles.card}
-                  onMouseEnter={(e) =>
-                    Object.assign(e.currentTarget.style, styles.cardHover)
-                  }
-                  onMouseLeave={(e) =>
-                    Object.assign(e.currentTarget.style, styles.card)
-                  }
-                >
-                  {/* Name */}
-                  <h3 style={styles.cardTitle}>{voter.name_as_on_roll}</h3>
+                <div key={index} style={styles.card}>
+                  <h3 style={styles.cardTitle}>
+                    {voter["Name as on the Roll"]}
+                  </h3>
 
-                  {/* Details */}
                   <div style={styles.cardGrid}>
                     <p>
-                      <span style={styles.label}>Enrollment:</span>{" "}
-                      {voter.roll_number}
+                      <span style={styles.label}>Roll No:</span>{" "}
+                      {voter["Number on the Roll"]}
                     </p>
 
                     <p>
                       <span style={styles.label}>Electoral No:</span>{" "}
-                      {voter.electoral_number}
+                      {voter["Electoral Number"]}
+                    </p>
+
+                    <p>
+                      <span style={styles.label}>Judgship:</span>{" "}
+                      {voter["Judgship"]}
                     </p>
 
                     <p style={styles.cardFull}>
                       <span style={styles.label}>Bar:</span>{" "}
-                      {voter.bar_association}
+                      {voter["Bar Association"]}
                     </p>
+
+                    <div style={{width:"100%",gridColumn: "1 / -1",display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "flex-start",gap: "5px"}}>
+                      <p>
+                      <span style={styles.label}>Enrolled:</span>{" "}
+                      {voter["Date of Enrolment"]}
+                    </p>
+
+                    <p style={{ color: "red", fontSize: "10px" }}>
+                      Note:- Vote For Adv. Rajendra Kumar Agrawal
+                    </p>
+                    </div>
                   </div>
                 </div>
               ))}
+
+              {/* Banner */}
+              <div style={styles.card}>
+                <img
+                  src={MainBanner.src}
+                  alt="banner"
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "contain",
+                  }}
+                />
+              </div>
             </div>
 
-            {/* Load More Button */}
+            {/* Load More */}
             {visibleCount < results.length && (
               <button
                 onClick={() => setVisibleCount((prev) => prev + 10)}
@@ -132,6 +135,10 @@ export default function VoterSearch() {
     </section>
   );
 }
+
+
+
+
 
 const styles = {
   section: {
@@ -214,6 +221,7 @@ const styles = {
     boxShadow: "0 4px 14px rgba(0,0,0,0.08)",
     border: "1px solid #eee",
     transition: "all 0.25s ease",
+    overflow: "hidden",
   },
 
   cardHover: {
