@@ -90,32 +90,19 @@ export default function VoterSearch() {
                     </p>
 
                     <div
-                      // style={{
-                      //   height: "90px",
-                      //   width: "90px",
-
-                      //   border: "1px solid black",
-                      //   borderRadius: "50%",
-                      //   backgroundColor: "#FF0000",
-                      //   color: "white",
-                      //   fontWeight: "bold",
-                      //   display: "flex",
-                      //   alignItems: "center",
-                      //   justifyContent: "center",
-                      // }}
-
                       style={{
                         height: "80px",
                         width: "80px",
                         borderRadius: "50%",
-                        background: "linear-gradient(135deg, #EF4444, #B91C1C)",
+                        // background: "linear-gradient(135deg, #EF4444, #B91C1C)",
+                        background: "#0B3C5D",
                         color: "#fff",
                         fontWeight: "bold",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         flexDirection: "column",
-                        boxShadow: "0 10px 25px rgba(239, 68, 68, 0.5)",
+                        // boxShadow: "0 10px 25px rgba(239, 68, 68, 0.5)",
                         border: "2px solid rgba(255,255,255,0.2)",
                         transition: "all 0.3s ease",
                       }}
