@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import data from "@/public/All_Data.json";
-import MainBanner from "@/public/mainBanner.jpeg";
+import MainBanner from "@/public/votingBanner.jpeg";
+import { ArrowDown } from "lucide-react";
 
 export default function VoterSearch() {
   const [query, setQuery] = useState("");
@@ -14,13 +15,14 @@ export default function VoterSearch() {
   const handleSearch = () => {
     if (!query.trim()) return;
 
-    const filtered = allVoters.filter((voter) =>
-      (voter["Name as on the Roll"] || "")
-        .toLowerCase()
-        .includes(query.toLowerCase()) ||
-      (voter["Number on the Roll"] || "")
-        .toLowerCase()
-        .includes(query.toLowerCase())
+    const filtered = allVoters.filter(
+      (voter) =>
+        (voter["Name as on the Roll"] || "")
+          .toLowerCase()
+          .includes(query.toLowerCase()) ||
+        (voter["Number on the Roll"] || "")
+          .toLowerCase()
+          .includes(query.toLowerCase()),
     );
 
     setResults(filtered);
@@ -87,20 +89,75 @@ export default function VoterSearch() {
                       {voter["Judgship"]}
                     </p>
 
+                    <div
+                      // style={{
+                      //   height: "90px",
+                      //   width: "90px",
+
+                      //   border: "1px solid black",
+                      //   borderRadius: "50%",
+                      //   backgroundColor: "#FF0000",
+                      //   color: "white",
+                      //   fontWeight: "bold",
+                      //   display: "flex",
+                      //   alignItems: "center",
+                      //   justifyContent: "center",
+                      // }}
+
+                      style={{
+                        height: "80px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        background: "linear-gradient(135deg, #EF4444, #B91C1C)",
+                        color: "#fff",
+                        fontWeight: "bold",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        boxShadow: "0 10px 25px rgba(239, 68, 68, 0.5)",
+                        border: "2px solid rgba(255,255,255,0.2)",
+                        transition: "all 0.3s ease",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginTop: "8px",
+                        }}
+                      >
+                        <span style={{ fontSize: "10px" }}>BALLOT NO.</span>
+                        <span style={{ fontSize: "25px" }}>59</span>
+                      </div>
+                    </div>
+
                     <p style={styles.cardFull}>
                       <span style={styles.label}>Bar:</span>{" "}
                       {voter["Bar Association"]}
                     </p>
 
-                    <div style={{width:"100%",gridColumn: "1 / -1",display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "flex-start",gap: "5px"}}>
+                    <div
+                      style={{
+                        width: "100%",
+                        gridColumn: "1 / -1",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        justifyContent: "flex-start",
+                        gap: "5px",
+                      }}
+                    >
                       <p>
-                      <span style={styles.label}>Enrolled:</span>{" "}
-                      {voter["Date of Enrolment"]}
-                    </p>
+                        <span style={styles.label}>Enrolled:</span>{" "}
+                        {voter["Date of Enrolment"]}
+                      </p>
 
-                    <p style={{ color: "red", fontSize: "10px" }}>
-                      Note:- Vote For Adv. Rajendra Kumar Agrawal
-                    </p>
+                      <p style={{ color: "red", fontSize: "10px" }}>
+                        Note:- Vote For Adv. Rajendra Kumar Agrawal
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -126,7 +183,7 @@ export default function VoterSearch() {
                 onClick={() => setVisibleCount((prev) => prev + 10)}
                 style={styles.loadMoreBtn}
               >
-                Load More ⬇️
+                Load More <ArrowDown size={20} />
               </button>
             )}
           </>
@@ -135,10 +192,6 @@ export default function VoterSearch() {
     </section>
   );
 }
-
-
-
-
 
 const styles = {
   section: {
@@ -263,5 +316,9 @@ const styles = {
     cursor: "pointer",
     fontWeight: "600",
     fontSize: "0.9rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
   },
 };

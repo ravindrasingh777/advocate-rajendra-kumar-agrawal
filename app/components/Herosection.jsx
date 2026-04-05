@@ -1,5 +1,6 @@
 "use client";
-import heroImage from "@/public/herosection.jpeg";
+import heroImage from "@/public/mainBannerBallet.jpeg";
+import { Direction } from "radix-ui";
 
 export default function HeroSection() {
   return (
@@ -26,13 +27,53 @@ export default function HeroSection() {
           </p>
 
           {/* INFO CARD */}
+          {/* <div
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          > */}
           <div style={styles.infoCard}>
             <div>
               <h3 style={styles.infoName}>राजेन्द्र कुमार अग्रवाल</h3>
               <p style={styles.infoSub}>अधिवक्ता, राजस्थान उच्च न्यायालय</p>
               <p style={styles.infoPhone}>📞 9257061112 | 9829061112</p>
             </div>
+            <div
+              style={{
+                height: "80px",
+                width: "80px",
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, #EF4444, #B91C1C)",
+                color: "#fff",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                boxShadow: "0 10px 25px rgba(239, 68, 68, 0.5)",
+                border: "2px solid rgba(255,255,255,0.2)",
+                transition: "all 0.3s ease",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: "8px",
+                }}
+              >
+                <span style={{ fontSize: "10px" }}>BALLOT NO.</span>
+                <span style={{ fontSize: "25px" }}>59</span>
+              </div>
+            </div>
           </div>
+
+          {/* </div> */}
 
           {/* BUTTONS */}
           <div style={styles.btnRow}>
@@ -135,12 +176,16 @@ const styles = {
   },
 
   infoCard: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     background: "#fff",
     padding: "1rem",
     borderRadius: "12px",
     borderLeft: "5px solid #0B3C5D",
     boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-    maxWidth: "400px",
+    // maxWidth: "400px",
   },
 
   infoName: {
