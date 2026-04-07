@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import data from "@/public/All_Data.json";
-import MainBanner from "@/public/votingBanner.jpeg";
+import MainBanner from "@/public/votingBanner2.jpeg";
 import { ArrowDown } from "lucide-react";
 
 export default function VoterSearch() {
@@ -39,7 +39,7 @@ export default function VoterSearch() {
         <div style={styles.searchBox}>
           <input
             type="text"
-            placeholder="नाम या रोल नंबर डालें..."
+            placeholder="🔍 अपना नाम या Enrolment Number यहाँ टाइप करें..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
@@ -117,7 +117,7 @@ export default function VoterSearch() {
                         }}
                       >
                         <span style={{ fontSize: "10px" }}>BALLOT NO.</span>
-                        <span style={{ fontSize: "25px" }}>59</span>
+                        <span style={{ fontSize: "25px" }}>58</span>
                       </div>
                     </div>
 

@@ -1,5 +1,5 @@
 "use client";
-import heroImage from "@/public/mainBannerBallet.jpeg";
+import heroImage from "@/public/newBalletHero.jpeg";
 import { Direction } from "radix-ui";
 
 export default function HeroSection() {
@@ -68,7 +68,7 @@ export default function HeroSection() {
                 }}
               >
                 <span style={{ fontSize: "10px" }}>BALLOT NO.</span>
-                <span style={{ fontSize: "25px" }}>59</span>
+                <span style={{ fontSize: "25px" }}>58</span>
               </div>
             </div>
           </div>
