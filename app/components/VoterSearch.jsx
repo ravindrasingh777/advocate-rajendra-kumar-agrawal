@@ -150,19 +150,19 @@
 //                 </div>
 //               ))}
 
-//               {/* Banner */}
-//               <div style={styles.card}>
-//                 <img
-//                   src={MainBanner.src}
-//                   alt="banner"
-//                   style={{
-//                     width: "100%",
-//                     height: "200px",
-//                     objectFit: "contain",
-//                   }}
-//                 />
-//               </div>
-//             </div>
+            //   {/* Banner */}
+            //   <div style={styles.card}>
+            //     <img
+            //       src={MainBanner.src}
+            //       alt="banner"
+            //       style={{
+            //         width: "100%",
+            //         height: "200px",
+            //         objectFit: "contain",
+            //       }}
+            //     />
+            //   </div>
+            // </div>
 
 //             {/* Load More */}
 //             {visibleCount < results.length && (
@@ -313,6 +313,7 @@
 "use client";
 import { useState } from "react";
 import data from "@/public/VANSH_WEBSITE.json";
+import MainBanner from "@/public/votingBanner2.jpeg";
 
 export default function VoterSearch() {
   const [query, setQuery] = useState("");
@@ -361,6 +362,7 @@ export default function VoterSearch() {
           Search
         </button>
       </div>
+      
 
       {/* RESULTS */}
       {searched && (
@@ -429,6 +431,21 @@ export default function VoterSearch() {
             </div>
           ))}
 
+     {results.length > 0 && (
+  <div style={styles.card}>
+    <img
+      src={MainBanner.src}
+      alt="banner"
+      style={{
+        width: "100%",
+        height: "200px",
+        objectFit: "contain",
+      }}
+    />
+  </div>
+)}
+
+          
           {/* LOAD MORE */}
           {visibleCount < results.length && (
             <button onClick={loadMore} style={styles.loadMore}>
