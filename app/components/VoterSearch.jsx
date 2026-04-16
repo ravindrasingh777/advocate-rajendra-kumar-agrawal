@@ -150,19 +150,19 @@
 //                 </div>
 //               ))}
 
-            //   {/* Banner */}
-            //   <div style={styles.card}>
-            //     <img
-            //       src={MainBanner.src}
-            //       alt="banner"
-            //       style={{
-            //         width: "100%",
-            //         height: "200px",
-            //         objectFit: "contain",
-            //       }}
-            //     />
-            //   </div>
-            // </div>
+//   {/* Banner */}
+//   <div style={styles.card}>
+//     <img
+//       src={MainBanner.src}
+//       alt="banner"
+//       style={{
+//         width: "100%",
+//         height: "200px",
+//         objectFit: "contain",
+//       }}
+//     />
+//   </div>
+// </div>
 
 //             {/* Load More */}
 //             {visibleCount < results.length && (
@@ -314,6 +314,7 @@
 import { useState } from "react";
 import data from "@/public/VANSH_WEBSITE.json";
 import MainBanner from "@/public/votingBanner2.jpeg";
+import html2canvas from "html2canvas";
 
 export default function VoterSearch() {
   const [query, setQuery] = useState("");
@@ -345,6 +346,74 @@ export default function VoterSearch() {
     setVisibleCount((prev) => prev + 10);
   };
 
+
+
+  const handlePrint = (index) => {
+  const element = document.getElementById(`card-${index}`);
+  if (!element) return;
+
+  // 👇 clone element (original UI affect nahi hoga)
+  const clone = element.cloneNode(true);
+
+  // 👇 buttons remove from clone
+  const noPrint = clone.querySelector(".no-print");
+  if (noPrint) noPrint.remove();
+
+  const printWindow = window.open("", "_blank");
+
+  printWindow?.document.write(`
+    <html>
+      <head>
+        <title>Print Card</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+          }
+
+          /* Card styling maintain */
+          div {
+            box-sizing: border-box;
+          }
+        </style>
+      </head>
+      <body>
+        ${clone.outerHTML}
+      </body>
+    </html>
+  `);
+
+  printWindow?.document.close();
+
+  // 👇 thoda delay taki content load ho jaye
+  printWindow?.focus();
+  setTimeout(() => {
+    printWindow?.print();
+  }, 300);
+};
+
+  const handleDownload = async (index) => {
+  const element = document.getElementById(`card-${index}`);
+  if (!element) return;
+
+  const buttons = element.querySelector(".no-print");
+
+  // 👇 temporarily hide
+  if (buttons) buttons.style.display = "none";
+
+  const canvas = await html2canvas(element, { scale: 2 });
+  const image = canvas.toDataURL("image/png");
+
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = `voter-card-${index}.png`;
+  link.click();
+
+  // 👇 wapas show
+  if (buttons) buttons.style.display = "flex";
+};
+
+
   return (
     <section style={styles.section} id="voter-search">
       <h2 style={styles.heading}>🔍 मतदाता खोजें</h2>
@@ -362,7 +431,6 @@ export default function VoterSearch() {
           Search
         </button>
       </div>
-      
 
       {/* RESULTS */}
       {searched && (
@@ -389,6 +457,7 @@ export default function VoterSearch() {
 
           {results.slice(0, visibleCount).map((voter, index) => (
             <div
+              id={`card-${index}`}
               key={index}
               style={{
                 ...styles.card,
@@ -404,6 +473,26 @@ export default function VoterSearch() {
                 <p>Electoral No: {voter["Electoral Number"]}</p>
                 <p>Bar: {voter["Bar Association_x"]}</p>
                 <p>Court: {voter["Judgeship_x"]}</p>
+
+                {/* 👉 BUTTONS */}
+                <div
+                  className="no-print"
+                  style={{ marginTop: "10px", display: "flex", gap: "10px" }}
+                >
+                  <button
+                    onClick={() => handleDownload(index)}
+                    style={styles.button}
+                  >
+                    Download
+                  </button>
+
+                  <button
+                    onClick={() => handlePrint(index)}
+                    style={styles.button}
+                  >
+                    Print
+                  </button>
+                </div>
               </div>
 
               {/* RIGHT SIDE BALLOT */}
@@ -424,28 +513,25 @@ export default function VoterSearch() {
                 }}
               >
                 <span style={{ fontSize: "10px" }}>BALLOT NO.</span>
-                <span style={{ fontSize: "20px" }}>
-                  58
-                </span>
+                <span style={{ fontSize: "20px" }}>58</span>
               </div>
             </div>
           ))}
 
-     {results.length > 0 && (
-  <div style={styles.card}>
-    <img
-      src={MainBanner.src}
-      alt="banner"
-      style={{
-        width: "100%",
-        height: "200px",
-        objectFit: "contain",
-      }}
-    />
-  </div>
-)}
+          {results.length > 0 && (
+            <div style={styles.card}>
+              <img
+                src={MainBanner.src}
+                alt="banner"
+                style={{
+                  width: "100%",
+                  height: "200px",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+          )}
 
-          
           {/* LOAD MORE */}
           {visibleCount < results.length && (
             <button onClick={loadMore} style={styles.loadMore}>

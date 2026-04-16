@@ -99,3 +99,10 @@ section {
     transform: translateX(-50%);
   }
 }
+
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
