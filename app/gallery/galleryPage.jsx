@@ -1,20 +1,18 @@
 "use client";
 
-import gallery1 from "@/public/gallery1.jpeg";
-import gallery2 from "@/public/gallery16.jpeg";
-import gallery3 from "@/public/gallery3.jpeg";
-import gallery4 from "@/public/gallery4.jpeg";
-import gallery5 from "@/public/gallery5.jpeg";
-import gallery6 from "@/public/gallery6.jpeg";
-import gallery7 from "@/public/gallery7.jpeg";
-import gallery8 from "@/public/gallery8.jpeg";
-import gallery9 from "@/public/gallery9.jpeg";
-import gallery10 from "@/public/gallery10.jpeg";
-import gallery11 from "@/public/gallery11.jpeg";
-import gallery12 from "@/public/gallery12.jpeg";
-import gallery13 from "@/public/gallery13.jpeg";
-import gallery14 from "@/public/gallery14.jpeg";
-import gallery15 from "@/public/gallery15.jpeg";
+import gallery1 from "@/public/newGallery1.jpeg";
+import gallery2 from "@/public/newGallery12.jpeg";
+import gallery3 from "@/public/newGallery3.jpeg";
+import gallery4 from "@/public/newGallery4.jpeg";
+import gallery5 from "@/public/newGallery5.jpeg";
+import gallery6 from "@/public/newGallery6.jpeg";
+import gallery7 from "@/public/newGallery7.jpeg";
+import gallery8 from "@/public/newGallery8.jpeg";
+import gallery9 from "@/public/newGallery9.jpeg";
+import gallery10 from "@/public/newGallery10.jpeg";
+import gallery11 from "@/public/newGallery11.jpeg";
+import gallery12 from "@/public/gallery10.jpeg";
+import gallery13 from "@/public/newGallery13.jpeg";
 import Link from "next/link";
 
 const images = [
@@ -31,8 +29,6 @@ const images = [
   { id: 11, src: gallery11 },
   { id: 12, src: gallery12 },
   { id: 13, src: gallery13 },
-  { id: 14, src: gallery14 },
-  { id: 15, src: gallery15 },
 ];
 
 export default function GalleryPage() {
@@ -55,18 +51,37 @@ export default function GalleryPage() {
                 e.currentTarget.style.transform = "scale(1)";
               }}
             >
-              <img
-                src={img.src.src}
-                alt="gallery"
-                style={styles.image}
-              />
+              <img src={img.src.src} alt="gallery" style={styles.image} />
             </div>
           ))}
         </div>
 
-        <div style={{width:"100%", marginTop:"2rem", display:"flex",alignItems:"center", justifyContent:"center"}}>
-          <button style={{padding:"5px",border:"2px solid #0B3C5D", borderRadius:"10px"}}>
-            <Link style={{color:"#0B3C5D", textDecoration:"none", padding:"1rem"}} href="/">Back</Link>
+        <div
+          style={{
+            width: "100%",
+            marginTop: "2rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            style={{
+              padding: "5px",
+              border: "2px solid #0B3C5D",
+              borderRadius: "10px",
+            }}
+          >
+            <Link
+              style={{
+                color: "#0B3C5D",
+                textDecoration: "none",
+                padding: "1rem",
+              }}
+              href="/"
+            >
+              Back
+            </Link>
           </button>
         </div>
       </div>
