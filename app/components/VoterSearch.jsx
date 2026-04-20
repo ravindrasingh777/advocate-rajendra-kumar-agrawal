@@ -592,7 +592,7 @@
 "use client";
 import { useState } from "react";
 import data from "@/public/VANSH_WEBSITE.json";
-import MainBanner from "@/public/votingBanner2.jpeg";
+import MainBanner from "@/public/newSearchBanner.jpeg";
 import html2canvas from "html2canvas";
 
 export default function VoterSearch() {

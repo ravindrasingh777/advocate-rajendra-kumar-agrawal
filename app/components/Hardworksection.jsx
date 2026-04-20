@@ -1,28 +1,42 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import gallery1 from "@/public/gallery5.jpeg";
-import gallery2 from "@/public/gallery1.jpeg";
+import gallery1 from "@/public/newGallery1.jpeg";
+import gallery2 from "@/public/newGallery12.jpeg";
+import gallery3 from "@/public/newGallery3.jpeg";
+import gallery4 from "@/public/newGallery9.jpeg";
 
 const galleryItems = [
-  {
+  // {
+  //   id: 1,
+  //   type: "video",
+  //   src: "/vedeo.mp4",
+  //   title: "न्याय के लिए आंदोलन",
+  //   desc: "अधिवक्ता समाज के अधिकारों के लिए संघर्ष",
+  // },
+    {
     id: 1,
-    type: "video",
-    src: "/vedeo.mp4",
-    title: "न्याय के लिए आंदोलन",
-    desc: "अधिवक्ता समाज के अधिकारों के लिए संघर्ष",
+    type: "image",
+    src: gallery1,
+    // title: "न्याय के लिए आंदोलन",
   },
   {
     id: 2,
     type: "image",
-    src: gallery1,
-    title: "साथियों के साथ",
+    src: gallery2,
+    // title: "साथियों के साथ",
   },
   {
     id: 3,
     type: "image",
-    src: gallery2,
-    title: "सड़क पर संघर्ष",
+    src: gallery3,
+    // title: "सड़क पर संघर्ष",
+  },
+  {
+    id: 4,
+    type: "image",
+    src: gallery4,
+    // title: "सड़क पर संघर्ष",
   },
 ];
 
@@ -90,10 +104,10 @@ export default function HardworkSection() {
 
               {/* OVERLAY */}
               <div style={styles.overlay}>
-                <h4 style={styles.cardTitle}>{item.title}</h4>
-                {item.desc && (
+                {/* <h4 style={styles.cardTitle}>{item.title}</h4> */}
+                {/* {item.desc && (
                   <p style={styles.cardDesc}>{item.desc}</p>
-                )}
+                )} */}
               </div>
             </div>
           ))}
