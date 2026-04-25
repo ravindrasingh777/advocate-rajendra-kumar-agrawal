@@ -1,5 +1,5 @@
 "use client";
-import heroImage from "@/public/newBalletHero2.jpeg";
+import heroImage from "@/public/mainBanner2.jpeg";
 import { Direction } from "radix-ui";
 
 export default function HeroSection() {
