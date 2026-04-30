@@ -1,6 +1,6 @@
 // components/AboutSection.jsx
 
-import aboutImage from "@/public/aboutus.jpeg";
+import aboutImage from "@/public/mainBanner2.jpeg";
 
 const bioPoints = [
   "Advocate at Rajasthan High Court, Jaipur  ",
