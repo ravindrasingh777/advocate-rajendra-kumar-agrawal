@@ -1076,8 +1076,10 @@ export default function VoterSearch() {
                   </button>
                 </div>
 
-                <p style={{ marginTop: "10px", color: "red" }}>
-                  Note: Vote For Adv Rajendra Kumar Agrawal
+                <p
+                  style={{ marginTop: "10px", color: "red", fontSize: "10px" }}
+                >
+                  Note: Vote For Adv. Rajendra Kumar Agrawal
                 </p>
               </div>
 

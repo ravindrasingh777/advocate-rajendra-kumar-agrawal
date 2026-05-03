@@ -1,11 +1,11 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import heroImage from "@/public/instaDp.jpeg";
-import carouselImage1 from "@/public/carousel1.jpeg";
-import carouselImage2 from "@/public/carousel2.jpeg";
-import carouselImage3 from "@/public/carousel3.jpeg";
-import carouselImage4 from "@/public/carousel4.jpeg";
-import carouselImage5 from "@/public/carousel5.jpeg";
+import carouselImage1 from "@/public/newcarousel1.jpeg";
+import carouselImage2 from "@/public/newBalletHero3.png";
+import carouselImage3 from "@/public/newBalletHero4.png";
+import carouselImage4 from "@/public/newBalletHero2.jpeg";
+import carouselImage5 from "@/public/mainBanner2.jpeg";
 
 import Image from "next/image";
 
@@ -172,7 +172,7 @@ export default function InstagramCarousel() {
           <div>
             <strong style={{ fontSize: "13px" }}>adv.rajendra_agrawal22</strong>
             <div style={{ fontSize: "13px", color: "#666" }}>
-              216 posts · 32K followers · 2771 following
+              361 posts · 40.2K followers · 2817 following
             </div>
           </div>
         </div>
