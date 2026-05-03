@@ -589,9 +589,307 @@
 //   },
 // };
 
+// "use client";
+// import { useState } from "react";
+// import data from "@/public/VANSH_WEBSITE.json";
+// import MainBanner from "@/public/newSearchBanner.jpeg";
+// import html2canvas from "html2canvas";
+
+// export default function VoterSearch() {
+//   const [query, setQuery] = useState("");
+//   const [results, setResults] = useState([]);
+//   const [searched, setSearched] = useState(false);
+//   const [visibleCount, setVisibleCount] = useState(10);
+
+//   const allVoters = data?.data || [];
+
+//   const handleSearch = () => {
+//     const q = query.trim().toLowerCase();
+//     if (!q) return;
+
+//     const filtered = allVoters.filter((voter) => {
+//       return (
+//         voter.NAME?.toLowerCase().includes(q) ||
+//         voter["Enrollment No"]?.toLowerCase().includes(q) ||
+//         String(voter["Electoral Number"]).includes(q)
+//       );
+//     });
+
+//     setResults(filtered);
+//     setVisibleCount(10);
+//     setSearched(true);
+//   };
+
+//   const loadMore = () => {
+//     setVisibleCount((prev) => prev + 10);
+//   };
+
+//   // ✅ PRINT FUNCTION (FIXED COLORS)
+//   const handlePrint = (index) => {
+//     const element = document.getElementById(`card-${index}`);
+//     if (!element) return;
+
+//     const clone = element.cloneNode(true);
+
+//     const noPrint = clone.querySelector(".no-print");
+//     if (noPrint) noPrint.remove();
+
+//     const printWindow = window.open("", "_blank");
+
+//     printWindow?.document.write(`
+//       <html>
+//         <head>
+//           <title>Print Card</title>
+//           <style>
+//             body {
+//               font-family: Arial, sans-serif;
+//               padding: 20px;
+//               -webkit-print-color-adjust: exact;
+//               print-color-adjust: exact;
+//             }
+
+//             div {
+//               box-sizing: border-box;
+//             }
+//           </style>
+//         </head>
+//         <body>
+//           ${clone.outerHTML}
+//         </body>
+//       </html>
+//     `);
+
+//     printWindow?.document.close();
+//     printWindow?.focus();
+
+//     setTimeout(() => {
+//       printWindow?.print();
+//     }, 300);
+//   };
+
+//   // ✅ DOWNLOAD FUNCTION (HIGH QUALITY)
+//   const handleDownload = async (index) => {
+//     const element = document.getElementById(`card-${index}`);
+//     if (!element) return;
+
+//     const buttons = element.querySelector(".no-print");
+
+//     if (buttons) buttons.style.display = "none";
+
+//     const canvas = await html2canvas(element, {
+//       scale: 3,
+//       useCORS: true,
+//       backgroundColor: "#ffffff",
+//     });
+
+//     const image = canvas.toDataURL("image/png");
+
+//     const link = document.createElement("a");
+//     link.href = image;
+//     link.download = `voter-card-${index}.png`;
+//     link.click();
+
+//     if (buttons) buttons.style.display = "flex";
+//   };
+
+//   return (
+//     <section style={styles.section} id="voter-search">
+//       <h2 style={styles.heading}>🔍 मतदाता खोजें</h2>
+
+//       {/* SEARCH */}
+//       <div style={styles.searchBox}>
+//         <input
+//           type="text"
+//           placeholder="नाम / Enrollment No / Electoral No डालें"
+//           value={query}
+//           onChange={(e) => setQuery(e.target.value)}
+//           style={styles.input}
+//         />
+//         <button onClick={handleSearch} style={styles.button}>
+//           Search
+//         </button>
+//       </div>
+
+//       {/* RESULTS */}
+//       {searched && (
+//         <div style={{ marginTop: "20px" }}>
+//           <p style={{ marginBottom: "10px" }}>
+//             Results Found: {results.length}
+//           </p>
+
+//           {results.length === 0 && <p>❌ कोई रिकॉर्ड नहीं मिला</p>}
+
+//           {results.slice(0, visibleCount).map((voter, index) => (
+//             <div
+//               id={`card-${index}`}
+//               key={index}
+//               style={{
+//                 ...styles.card,
+//                 display: "flex",
+//                 justifyContent: "space-between",
+//                 alignItems: "center",
+//               }}
+//             >
+//               {/* LEFT */}
+//               <div>
+//                 <h3>{voter.NAME}</h3>
+//                 <p>Enrollment No: {voter["Enrollment No"]}</p>
+//                 <p>Electoral No: {voter["Electoral Number"]}</p>
+//                 <p>Polling Booth: {voter["Bar Association_x"]}</p>
+//                 <p>Judgeship: {voter["Judgeship_x"]}</p>
+
+//                 {/* BUTTONS */}
+//                 <div
+//                   className="no-print"
+//                   style={{ marginTop: "10px", display: "flex", gap: "10px" }}
+//                 >
+//                   <button
+//                     onClick={() => handleDownload(index)}
+//                     style={styles.button}
+//                   >
+//                     Download
+//                   </button>
+
+//                   <button
+//                     onClick={() => handlePrint(index)}
+//                     style={styles.button}
+//                   >
+//                     Print
+//                   </button>
+//                 </div>
+
+//                 <p style={{ marginTop: "10px", color: "red" }}>
+//                   Note: Vote For Adv Rajendra Kumar Agrawal
+//                 </p>
+//               </div>
+
+//               {/* RIGHT BALLOT (UPDATED) */}
+//               {/* RIGHT SIDE BALLOT + IMAGE */}
+//               <div
+//                 style={{
+//                   display: "flex",
+//                   flexDirection: "column",
+//                   alignItems: "center",
+//                   justifyContent: "center",
+//                   marginLeft: "10px",
+//                 }}
+//               >
+//                 {/* CIRCLE */}
+//                 <div
+//                   style={{
+//                     height: "100px",
+//                     width: "100px",
+//                     borderRadius: "50%",
+//                     background: "#0B3C5D",
+//                     color: "#fff",
+//                     fontWeight: "bold",
+//                     display: "flex",
+//                     alignItems: "center",
+//                     justifyContent: "center",
+//                     flexDirection: "column",
+//                     border: "2px solid #ffffff",
+//                   }}
+//                 >
+//                   <span style={{ fontSize: "10px" }}>BALLOT NO.</span>
+//                   <span style={{ fontSize: "20px", fontWeight: "700" }}>
+//                     58
+//                   </span>
+//                 </div>
+
+//                 {/* 👇 IMAGE BELOW CIRCLE */}
+//                 <img
+//                   src="/bollotBelowImage.jpeg" // 🔁 change this
+//                   alt="symbol"
+//                   style={{
+//                     width: "80px",
+//                     height: "80px",
+//                     marginTop: "8px",
+//                     objectFit: "contain",
+//                   }}
+//                 />
+//               </div>
+//             </div>
+//           ))}
+
+//           {/* BANNER */}
+//           {results.length > 0 && (
+//             <div style={styles.card}>
+//               <img
+//                 src={MainBanner.src}
+//                 alt="banner"
+//                 style={{
+//                   width: "100%",
+//                   height: "200px",
+//                   objectFit: "contain",
+//                 }}
+//               />
+//             </div>
+//           )}
+
+//           {/* LOAD MORE */}
+//           {visibleCount < results.length && (
+//             <button onClick={loadMore} style={styles.loadMore}>
+//               Load More
+//             </button>
+//           )}
+//         </div>
+//       )}
+//     </section>
+//   );
+// }
+
+// const styles = {
+//   section: {
+//     padding: "2rem",
+//     maxWidth: "800px",
+//     margin: "auto",
+//   },
+//   heading: {
+//     fontSize: "1.8rem",
+//     fontWeight: "700",
+//     marginBottom: "1rem",
+//     textAlign: "center",
+//   },
+//   searchBox: {
+//     display: "flex",
+//     gap: "10px",
+//   },
+//   input: {
+//     flex: 1,
+//     padding: "10px",
+//     border: "1px solid #ccc",
+//     borderRadius: "6px",
+//   },
+//   button: {
+//     padding: "10px 16px",
+//     background: "#0B3C5D",
+//     color: "#fff",
+//     border: "none",
+//     borderRadius: "6px",
+//     cursor: "pointer",
+//   },
+//   card: {
+//     border: "1px solid #eee",
+//     padding: "15px",
+//     borderRadius: "8px",
+//     marginBottom: "10px",
+//     boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+//   },
+//   loadMore: {
+//     marginTop: "10px",
+//     padding: "10px 16px",
+//     border: "none",
+//     background: "#333",
+//     color: "#fff",
+//     borderRadius: "6px",
+//     cursor: "pointer",
+//   },
+// };
+
 "use client";
 import { useState } from "react";
-import data from "@/public/VANSH_WEBSITE.json";
+import hcList from "@/public/hc_list (1).json";
+import sessionList from "@/public/session_court_pooling_booth.json";
 import MainBanner from "@/public/newSearchBanner.jpeg";
 import html2canvas from "html2canvas";
 
@@ -601,7 +899,27 @@ export default function VoterSearch() {
   const [searched, setSearched] = useState(false);
   const [visibleCount, setVisibleCount] = useState(10);
 
-  const allVoters = data?.data || [];
+  const normalizeData = () => {
+    const hc = hcList.map((item) => ({
+      NAME: item.NAME,
+      "Enrollment No": item["Enrollment No"],
+      "Electoral Number": item["Electoral Number"],
+      "Bar Association_x": item["Pooling Booth"], // 🔁 map
+      Judgeship_x: item["Judgeship_x"],
+    }));
+
+    const session = sessionList.map((item) => ({
+      NAME: item.NAME,
+      "Enrollment No": item["Enrollment No"],
+      "Electoral Number": item["Electoral Number"],
+      "Bar Association_x": item["Polling Booth "], // 🔁 FIX SPACE
+      Judgeship_x: item["Judgeship_x"],
+    }));
+
+    return [...hc, ...session];
+  };
+
+  const allVoters = normalizeData();
 
   const handleSearch = () => {
     const q = query.trim().toLowerCase();
